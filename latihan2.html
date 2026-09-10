@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <title>About You - The 1975</title>
+  <style>
+    body {
+      background: #121212;
+      color: white;
+      font-family: sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      margin: 0;
+    }
+
+    .container {
+      background: #1e1e1e;
+      display: flex;
+      width: 700px;
+      padding: 20px;
+      border-radius: 10px;
+      gap: 20px;
+    }
+
+    .player {
+      width: 250px;
+      text-align: center;
+    }
+
+    .player img {
+      width: 100%;
+      border-radius: 8px;
+    }
+
+    .controls {
+      margin-top: 15px;
+    }
+
+    button {
+      background: #1db954;
+      border: none;
+      color: black;
+      padding: 10px 20px;
+      border-radius: 20px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    .lirik {
+      flex: 1;
+      height: 320px;
+      overflow-y: auto;
+      line-height: 1.6;
+      color: #ccc;
+    }
+
+    .lirik h2 {
+      color: #1db954;
+      margin-top: 0;
+    }
+
+    .reff {
+      color: white;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <div class="player">
+      <img src="img/aboutyou.avif" alt="About You Cover">
+      <h2>About You</h2>
+      <p style="color: #aaa;">The 1975</p>
+      
+      <audio id="lagu" src="lagu/lagu.mp3"></audio>
+      
+      <div class="controls">
+        <button id="btnPlay" onclick="putarLagu()">Play</button>
+      </div>
+    </div>
+
+    <div class="lirik">
+      <h2>Lirik Lagu</h2>
+      <p>I know a place<br>
+      It's somewhere I go when I need to remember your face<br>
+      We get married in our heads<br>
+      Something to do while we try to recall how we met</p>
+      
+      <p class="reff">Do you think I have forgotten?<br>
+      Do you think I have forgotten?<br>
+      Do you think I have forgotten about you?</p>
+
+      <p>You and I<br>
+      Were alive<br>
+      With nothing to do I could lay and just look in your eyes<br>
+      Wait and pretend<br>
+      Hold on and hope that we'll find our way back in the end</p>
+      
+      <p class="reff">Do you think I have forgotten?<br>
+      Do you think I have forgotten?<br>
+      Do you think I have forgotten about you?<br>
+      Do you think I have forgotten?<br>
+      Do you think I have forgotten?<br>
+      Do you think I have forgotten about you?</p>
+
+      <p>There was something about you that now I can't remember<br>
+      It's the same damn thing that made my heart surrender<br>
+      And I'll miss you on a train<br>
+      I'll miss you in the morning<br>
+      I never know what to think about, so think about you<br>
+      (I think about you)</p>
+
+      <p class="reff">About you<br>
+      Do you think I have forgotten about you?<br>
+      About you<br>
+      About you<br>
+      Do you think I have forgotten about you?</p>
+    </div>
+  </div>
+
+</body>
+</html>

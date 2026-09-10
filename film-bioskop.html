@@ -1,0 +1,3094 @@
+```html
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>XXI Premium | Film Bioskop</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Poppins:wght@400;500;600;700;800&display=swap"
+    rel="stylesheet">
+
+  <style>
+    :root {
+      --bg: #0b0b0d;
+      --card: #17171b;
+      --red: #e11d2e;
+      --line: #2a2a30;
+      --text: #f2f1ee;
+      --muted: #9a9aa2;
+      --gold: #f5b301;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'Poppins', sans-serif;
+      -webkit-font-smoothing: antialiased;
+      transition: .3s;
+    }
+
+    body.light {
+      --bg: #f4f4f4;
+      --card: #ffffff;
+      --line: #dddddd;
+      --text: #171717;
+      --muted: #666;
+    }
+
+    h1,
+    h2,
+    h3,
+    .brand,
+    .btn,
+    .pill {
+      font-family: 'Bebas Neue', 'Poppins', sans-serif;
+      letter-spacing: .5px;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    ul {
+      list-style: none;
+    }
+
+    button {
+      font-family: 'Poppins', sans-serif;
+    }
+
+    .wrap {
+      max-width: 1240px;
+      margin: 0 auto;
+      padding: 0 32px;
+    }
+
+    /* ================= NAVBAR ================= */
+
+    header.top {
+      border-bottom: 1px solid var(--line);
+      background: rgba(14, 14, 17, .96);
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      backdrop-filter: blur(10px);
+    }
+
+    .navbar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 18px 32px;
+      gap: 20px;
+    }
+
+    .brand {
+      color: var(--red);
+      font-size: 34px;
+      font-weight: 700;
+      line-height: 1;
+    }
+
+    .navlinks {
+      display: flex;
+      align-items: center;
+      gap: 30px;
+    }
+
+    .navlinks a {
+      font-size: 14px;
+      font-weight: 500;
+      color: #fff;
+      opacity: .85;
+      transition: .2s;
+      position: relative;
+    }
+
+    .navlinks a:hover,
+    .navlinks a.active {
+      opacity: 1;
+      color: var(--red);
+    }
+
+    .navlinks a.active::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: -8px;
+      height: 2px;
+      background: var(--red);
+    }
+
+    .navactions {
+      display: flex;
+      gap: 10px;
+    }
+
+    .btn {
+      font-size: 13px;
+      font-weight: 600;
+      padding: 10px 18px;
+      border-radius: 6px;
+      cursor: pointer;
+      border: 1px solid transparent;
+      white-space: nowrap;
+      transition: .2s;
+    }
+
+    .btn:hover {
+      transform: translateY(-2px);
+    }
+
+    .btn-primary {
+      background: var(--red);
+      color: #fff;
+    }
+
+    .btn-primary:hover {
+      background: #c8172a;
+    }
+
+    .btn-outline {
+      background: transparent;
+      color: #fff;
+      border-color: #4b4b52;
+    }
+
+    .btn-outline:hover {
+      border-color: #fff;
+    }
+
+    /* ================= SEARCH ================= */
+
+    .search-box {
+      max-width: 1240px;
+      margin: 25px auto 0;
+      padding: 0 32px;
+    }
+
+    .search-inner {
+      position: relative;
+    }
+
+    .search-inner input {
+      width: 100%;
+      padding: 15px 50px 15px 18px;
+      background: #17171b;
+      border: 1px solid #303038;
+      border-radius: 8px;
+      color: #fff;
+      font-family: 'Poppins';
+      font-size: 14px;
+      outline: none;
+      transition: .2s;
+    }
+
+    .search-inner input:focus {
+      border-color: var(--red);
+    }
+
+    .search-icon {
+      position: absolute;
+      right: 18px;
+      top: 50%;
+      transform: translateY(-50%);
+      font-size: 20px;
+    }
+
+    /* ================= SECTION ================= */
+
+    .section {
+      padding: 44px 32px 10px;
+    }
+
+    .section-head {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 22px;
+    }
+
+    .section-head h2 {
+      font-size: 28px;
+      letter-spacing: 1px;
+    }
+
+    .tabs {
+      display: flex;
+      gap: 26px;
+      font-size: 13px;
+      font-weight: 600;
+    }
+
+    .tabs span {
+      color: var(--muted);
+      cursor: pointer;
+    }
+
+    .tabs span.active,
+    .tabs span:hover {
+      color: var(--red);
+    }
+
+    /* ================= PILLS ================= */
+
+    .pills {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+      margin-bottom: 30px;
+    }
+
+    .pill {
+      padding: 9px 20px;
+      border-radius: 20px;
+      background: #232328;
+      font-size: 13px;
+      font-weight: 600;
+      color: #c8c8ce;
+      cursor: pointer;
+      border: 1px solid transparent;
+      transition: .2s;
+    }
+
+    .pill.active {
+      background: var(--red);
+      color: #fff;
+    }
+
+    .pill:hover {
+      background: #333;
+      color: #fff;
+    }
+
+    /* ================= MOVIE POSTER ================= */
+
+    .poster {
+      aspect-ratio: 2 / 3;
+      border-radius: 7px;
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      align-items: flex-end;
+      padding: 16px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, .45);
+      border: 1px solid #232228;
+      background-size: cover;
+      background-position: center;
+      cursor: pointer;
+      transition: .3s;
+    }
+
+    .poster:hover {
+      transform: translateY(-7px);
+      box-shadow: 0 18px 35px rgba(0, 0, 0, .6);
+    }
+
+    .poster::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(
+        180deg,
+        rgba(0, 0, 0, 0) 35%,
+        rgba(0, 0, 0, .9) 100%
+      );
+      z-index: 1;
+    }
+
+    .poster .ptitle {
+      position: relative;
+      z-index: 2;
+      font-family: 'Bebas Neue';
+      font-size: 22px;
+      color: #fff;
+    }
+
+    .p1 { background: linear-gradient(160deg, #4a1620, #150507 75%); }
+    .p2 { background: linear-gradient(160deg, #5b1010, #120303 75%); }
+    .p3 { background: linear-gradient(160deg, #3a2410, #100804 75%); }
+    .p4 { background: linear-gradient(160deg, #33230f, #0c0704 75%); }
+    .p5 { background: linear-gradient(160deg, #401414, #110404 75%); }
+    .p6 { background: linear-gradient(160deg, #24303a, #060a0c 75%); }
+    .p7 { background: linear-gradient(160deg, #2c1a3a, #0a060f 75%); }
+    .p8 { background: linear-gradient(160deg, #3a1a1a, #0f0505 75%); }
+    .p9 { background: linear-gradient(160deg, #202a1c, #060a04 75%); }
+    .p10 { background: linear-gradient(160deg, #1c2a30, #04090b 75%); }
+    .p11 { background: linear-gradient(160deg, #351616, #0d0303 75%); }
+    .p12 { background: linear-gradient(160deg, #401c10, #0f0602 75%); }
+
+    /* ================= FAVORITE ================= */
+
+    .favorite {
+      position: absolute;
+      top: 12px;
+      right: 12px;
+      z-index: 5;
+      width: 38px;
+      height: 38px;
+      border-radius: 50%;
+      border: none;
+      background: rgba(0, 0, 0, .65);
+      color: #fff;
+      font-size: 19px;
+      cursor: pointer;
+      transition: .2s;
+    }
+
+    .favorite:hover {
+      transform: scale(1.1);
+    }
+
+    .favorite.active {
+      color: var(--red);
+    }
+
+    /* ================= MOVIE GRID ================= */
+
+    .grid-4 {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 26px;
+    }
+
+    .movie-meta {
+      margin-top: 12px;
+    }
+
+    .movie-meta .mtitle {
+      font-size: 15px;
+      font-weight: 600;
+      margin-bottom: 6px;
+    }
+
+    .stars {
+      color: var(--gold);
+      font-size: 13px;
+      letter-spacing: 2px;
+    }
+
+    .stars .off {
+      color: #4a4a4f;
+    }
+
+    /* ================= BANNER ================= */
+
+    .banner-strip {
+      margin: 38px 0;
+      background: var(--red);
+      text-align: center;
+      padding: 14px 20px;
+      font-weight: 700;
+      font-size: 14px;
+      letter-spacing: 1px;
+    }
+
+    /* ================= CONTINUE WATCHING ================= */
+
+    .cw-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+
+    .cw-item {
+      position: relative;
+      border-radius: 6px;
+      overflow: hidden;
+      aspect-ratio: 16 / 8.5;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border: 1px solid #232228;
+      background: linear-gradient(135deg, #3a0d16, #100304);
+    }
+
+    .cw2 {
+      background: linear-gradient(135deg, #0d2a2e, #03080a);
+    }
+
+    .cw3 {
+      background: linear-gradient(135deg, #1c2430, #05070a);
+    }
+
+    .cw-item::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: rgba(0, 0, 0, .35);
+    }
+
+    .play-btn {
+      position: relative;
+      z-index: 2;
+      width: 52px;
+      height: 52px;
+      border-radius: 50%;
+      border: 2px solid #fff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      background: rgba(0, 0, 0, .35);
+      transition: .2s;
+    }
+
+    .play-btn:hover {
+      transform: scale(1.1);
+      background: var(--red);
+    }
+
+    .play-btn::after {
+      content: "";
+      width: 0;
+      height: 0;
+      margin-left: 4px;
+      border-top: 9px solid transparent;
+      border-bottom: 9px solid transparent;
+      border-left: 14px solid #fff;
+    }
+
+    .cw-caption {
+      margin-top: 10px;
+    }
+
+    .cw-caption p {
+      font-size: 14px;
+      margin-bottom: 8px;
+    }
+
+    .progress {
+      height: 3px;
+      background: #333;
+      border-radius: 2px;
+      overflow: hidden;
+    }
+
+    .progress span {
+      display: block;
+      height: 100%;
+      background: var(--red);
+    }
+
+    /* ================= MOVIE LIST ================= */
+
+    .list-wrap {
+      display: flex;
+      align-items: stretch;
+    }
+
+    .list-main {
+      flex: 1;
+      padding: 44px 32px;
+    }
+
+    .list-top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 26px;
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+
+    .grid-6 {
+      display: grid;
+      grid-template-columns: repeat(6, 1fr);
+      gap: 22px;
+    }
+
+    .movie-card {
+      transition: .3s;
+    }
+
+    .movie-card.hidden {
+      display: none;
+    }
+
+    .movie-card .poster {
+      margin-bottom: 12px;
+    }
+
+    .movie-card .mtitle {
+      font-size: 13.5px;
+      text-transform: uppercase;
+      font-weight: 700;
+      margin-bottom: 6px;
+    }
+
+    .buy-btn {
+      display: block;
+      width: 100%;
+      text-align: center;
+      background: var(--red);
+      color: #fff;
+      font-size: 12px;
+      font-weight: 700;
+      padding: 9px 0;
+      border-radius: 5px;
+      margin: 10px 0 12px;
+      cursor: pointer;
+      border: none;
+    }
+
+    .buy-btn:hover {
+      background: #c8172a;
+    }
+
+    .desc {
+      font-size: 11.8px;
+      line-height: 1.6;
+      color: #b7b6bc;
+    }
+
+    .side-banner {
+      writing-mode: vertical-rl;
+      transform: rotate(180deg);
+      background: var(--red);
+      color: #fff;
+      font-weight: 800;
+      font-size: 20px;
+      letter-spacing: 3px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 60px;
+      flex-shrink: 0;
+    }
+
+    /* ================= HERO ================= */
+
+    .hero {
+      position: relative;
+      padding: 120px 32px;
+      text-align: center;
+      overflow: hidden;
+      background:
+        radial-gradient(
+          ellipse at 50% 0%,
+          rgba(225, 29, 46, .18),
+          transparent 60%
+        ),
+        linear-gradient(
+          180deg,
+          #0b0b0d 0%,
+          #170608 70%,
+          #2a070a 100%
+        );
+      border-top: 1px solid var(--line);
+    }
+
+    .hero-inner {
+      position: relative;
+      z-index: 2;
+    }
+
+    .eyebrow {
+      color: var(--red);
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 3px;
+      margin-bottom: 18px;
+    }
+
+    .hero h1 {
+      font-size: 56px;
+      font-weight: 800;
+      font-family: 'Poppins', sans-serif;
+      margin-bottom: 16px;
+    }
+
+    .hero p {
+      color: var(--muted);
+      font-size: 16px;
+      margin-bottom: 34px;
+    }
+
+    .hero-btns {
+      display: flex;
+      gap: 16px;
+      justify-content: center;
+    }
+
+    /* ================= FOOTER ================= */
+
+    footer {
+      background: linear-gradient(180deg, #2a070a 0%, #1a0407 100%);
+      padding: 60px 32px 0;
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 1.3fr .8fr .8fr .8fr 1fr;
+      gap: 32px;
+      padding-bottom: 44px;
+      border-bottom: 1px solid rgba(255, 255, 255, .08);
+    }
+
+    .footer-brand .brand {
+      font-size: 28px;
+      display: inline-block;
+    }
+
+    .tagline {
+      font-size: 10px;
+      letter-spacing: 2px;
+      color: var(--red);
+      font-weight: 700;
+      margin-left: 6px;
+    }
+
+    .footer-sub {
+      font-size: 13px;
+      font-weight: 600;
+      margin: 4px 0 14px;
+    }
+
+    .footer-desc {
+      font-size: 13px;
+      color: #c9a6a9;
+      line-height: 1.6;
+      margin-bottom: 16px;
+    }
+
+    .badges {
+      display: flex;
+      gap: 10px;
+    }
+
+    .badge {
+      font-size: 10px;
+      font-weight: 700;
+      padding: 6px 12px;
+      border-radius: 4px;
+    }
+
+    .badge.red {
+      background: var(--red);
+      color: #fff;
+    }
+
+    .badge.outline {
+      border: 1px solid rgba(255, 255, 255, .3);
+      color: #fff;
+    }
+
+    .footer-col h4 {
+      font-size: 12px;
+      letter-spacing: 1.5px;
+      margin-bottom: 18px;
+    }
+
+    .footer-col ul li {
+      margin-bottom: 12px;
+    }
+
+    .footer-col ul li a {
+      font-size: 13px;
+      color: #d8bcbe;
+    }
+
+    .footer-col ul li a:hover {
+      color: #fff;
+    }
+
+    .social {
+      display: flex;
+      gap: 10px;
+      margin-bottom: 26px;
+    }
+
+    .social a {
+      width: 34px;
+      height: 34px;
+      border-radius: 50%;
+      border: 1px solid rgba(255, 255, 255, .25);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 12px;
+    }
+
+    .social a:hover {
+      background: var(--red);
+    }
+
+    .newsletter-input {
+      width: 100%;
+      padding: 11px 14px;
+      border-radius: 5px;
+      border: 1px solid rgba(255, 255, 255, .2);
+      background: rgba(0, 0, 0, .3);
+      color: #fff;
+      font-size: 13px;
+      margin-bottom: 10px;
+    }
+
+    .subscribe-btn {
+      width: 100%;
+      background: var(--red);
+      color: #fff;
+      border: none;
+      padding: 12px;
+      border-radius: 5px;
+      font-weight: 700;
+      cursor: pointer;
+    }
+
+    .stats-bar {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      text-align: center;
+      padding: 34px 0;
+    }
+
+    .stats-bar div {
+      border-right: 1px solid rgba(255, 255, 255, .1);
+    }
+
+    .stats-bar div:last-child {
+      border-right: none;
+    }
+
+    .stats-bar .num {
+      font-size: 26px;
+      font-weight: 800;
+      color: var(--red);
+    }
+
+    .stats-bar .label {
+      font-size: 11px;
+      color: #c9a6a9;
+      margin-top: 4px;
+    }
+
+    .footer-bottom {
+      display: flex;
+      justify-content: space-between;
+      padding: 22px 0;
+      border-top: 1px solid rgba(255, 255, 255, .08);
+      font-size: 12px;
+      color: #a98a8c;
+    }
+
+    /* ================= MODAL ================= */
+
+    .modal-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, .78);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      z-index: 200;
+      padding: 20px;
+      backdrop-filter: blur(5px);
+    }
+
+    .modal-overlay.open {
+      display: flex;
+    }
+
+    .modal-box {
+      background: #151518;
+      border: 1px solid var(--line);
+      border-radius: 10px;
+      width: 100%;
+      max-width: 440px;
+      max-height: 90vh;
+      overflow-y: auto;
+      padding: 28px;
+      position: relative;
+      box-shadow: 0 20px 60px rgba(0, 0, 0, .6);
+      animation: modalPop .2s ease;
+    }
+
+    @keyframes modalPop {
+      from {
+        opacity: 0;
+        transform: scale(.96);
+      }
+
+      to {
+        opacity: 1;
+        transform: scale(1);
+      }
+    }
+
+    .modal-close {
+      position: absolute;
+      top: 14px;
+      right: 16px;
+      background: none;
+      border: none;
+      color: var(--muted);
+      font-size: 20px;
+      cursor: pointer;
+    }
+
+    .modal-eyebrow {
+      color: var(--red);
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 1.5px;
+      margin-bottom: 6px;
+    }
+
+    .modal-title {
+      font-size: 22px;
+      font-weight: 700;
+      margin-bottom: 20px;
+    }
+
+    .field {
+      margin-bottom: 16px;
+    }
+
+    .field label {
+      display: block;
+      font-size: 12px;
+      font-weight: 600;
+      color: var(--muted);
+      margin-bottom: 7px;
+    }
+
+    .field input,
+    .field select {
+      width: 100%;
+      padding: 11px 13px;
+      border-radius: 6px;
+      border: 1px solid #33333a;
+      background: #0e0e11;
+      color: #fff;
+      font-size: 13px;
+    }
+
+    /* ================= SEAT ================= */
+
+    .screen {
+      text-align: center;
+      padding: 9px;
+      margin: 10px 0 20px;
+      background: #333;
+      border-radius: 50%;
+      font-size: 11px;
+      letter-spacing: 2px;
+      color: #bbb;
+    }
+
+    .seat-grid {
+      display: grid;
+      grid-template-columns: repeat(6, 1fr);
+      gap: 7px;
+      margin-bottom: 18px;
+    }
+
+    .seat {
+      border: none;
+      border-radius: 5px;
+      padding: 8px 2px;
+      background: #33343a;
+      color: #fff;
+      cursor: pointer;
+      font-size: 10px;
+      transition: .2s;
+    }
+
+    .seat:hover {
+      background: #555;
+    }
+
+    .seat.selected {
+      background: var(--red);
+    }
+
+    .seat.occupied {
+      background: #161619;
+      color: #555;
+      cursor: not-allowed;
+    }
+
+    .seat-info {
+      font-size: 12px;
+      color: var(--muted);
+      margin-bottom: 15px;
+    }
+
+    .modal-submit {
+      width: 100%;
+      background: var(--red);
+      color: #fff;
+      border: none;
+      padding: 13px;
+      border-radius: 6px;
+      font-weight: 700;
+      cursor: pointer;
+    }
+
+    /* ================= DETAIL MODAL ================= */
+
+    .detail-poster {
+      height: 230px;
+      border-radius: 8px;
+      margin-bottom: 18px;
+      background-size: cover;
+      background-position: center;
+      display: flex;
+      align-items: flex-end;
+      padding: 18px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .detail-poster::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(transparent, rgba(0, 0, 0, .9));
+    }
+
+    .detail-poster h2 {
+      position: relative;
+      z-index: 2;
+      font-size: 30px;
+    }
+
+    .detail-info {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      margin-bottom: 15px;
+    }
+
+    .detail-tag {
+      padding: 5px 10px;
+      background: #29292e;
+      border-radius: 15px;
+      font-size: 11px;
+      color: #ccc;
+    }
+
+    .detail-desc {
+      color: #aaa;
+      font-size: 13px;
+      line-height: 1.7;
+      margin-bottom: 20px;
+    }
+
+    /* ================= CONFIRM ================= */
+
+    .confirm-view {
+      display: none;
+      text-align: center;
+    }
+
+    .confirm-view.show {
+      display: block;
+    }
+
+    .confirm-icon {
+      width: 56px;
+      height: 56px;
+      border-radius: 50%;
+      background: rgba(225, 29, 46, .15);
+      color: var(--red);
+      font-size: 28px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 16px;
+    }
+
+    .confirm-view h3 {
+      margin-bottom: 8px;
+    }
+
+    .confirm-view p {
+      font-size: 13px;
+      color: var(--muted);
+      margin-bottom: 18px;
+      line-height: 1.6;
+    }
+
+    .confirm-detail {
+      background: #0e0e11;
+      border: 1px solid #232228;
+      border-radius: 8px;
+      padding: 14px 16px;
+      text-align: left;
+      font-size: 13px;
+      margin-bottom: 18px;
+    }
+
+    .confirm-detail div {
+      display: flex;
+      justify-content: space-between;
+      padding: 5px 0;
+      gap: 20px;
+    }
+
+    .confirm-detail span:first-child {
+      color: var(--muted);
+    }
+
+    .confirm-detail span:last-child {
+      font-weight: 600;
+      text-align: right;
+    }
+
+    .modal-done-btn {
+      width: 100%;
+      background: transparent;
+      border: 1px solid #4b4b52;
+      color: #fff;
+      padding: 12px;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+
+    /* ================= TOAST ================= */
+
+    .toast {
+      position: fixed;
+      bottom: 28px;
+      right: 28px;
+      z-index: 300;
+      background: #151518;
+      border: 1px solid var(--line);
+      border-left: 4px solid var(--red);
+      border-radius: 8px;
+      padding: 16px 20px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      box-shadow: 0 12px 40px rgba(0, 0, 0, .5);
+      transform: translateY(30px);
+      opacity: 0;
+      pointer-events: none;
+      transition: .3s;
+      max-width: 330px;
+    }
+
+    .toast.show {
+      transform: translateY(0);
+      opacity: 1;
+    }
+
+    .toast-icon {
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      background: rgba(225, 29, 46, .15);
+      color: var(--red);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .toast-text strong {
+      display: block;
+      font-size: 13px;
+    }
+
+    .toast-text span {
+      font-size: 12px;
+      color: var(--muted);
+    }
+
+    /* ================= TRAILER ================= */
+
+    .trailer-box {
+      max-width: 700px;
+    }
+
+    .trailer-screen {
+      aspect-ratio: 16 / 9;
+      background:
+        radial-gradient(circle, #451018, #080809 70%);
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      overflow: hidden;
+      margin-bottom: 18px;
+    }
+
+    .trailer-screen::before {
+      content: "TRAILER";
+      position: absolute;
+      font-family: 'Bebas Neue';
+      font-size: 70px;
+      color: rgba(255, 255, 255, .06);
+      letter-spacing: 8px;
+    }
+
+    .big-play {
+      width: 70px;
+      height: 70px;
+      border-radius: 50%;
+      background: var(--red);
+      color: #fff;
+      border: none;
+      font-size: 25px;
+      cursor: pointer;
+      z-index: 2;
+    }
+
+    /* ================= BACK TOP ================= */
+
+    #backTop {
+      position: fixed;
+      bottom: 28px;
+      left: 28px;
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      border: none;
+      background: var(--red);
+      color: #fff;
+      font-size: 18px;
+      cursor: pointer;
+      display: none;
+      z-index: 100;
+      box-shadow: 0 5px 20px rgba(0, 0, 0, .4);
+    }
+
+    #backTop.show {
+      display: block;
+    }
+
+    /* ================= RESPONSIVE ================= */
+
+    @media (max-width: 980px) {
+
+      .navlinks {
+        display: none;
+      }
+
+      .grid-4 {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .grid-6 {
+        grid-template-columns: repeat(3, 1fr);
+      }
+
+      .cw-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .footer-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .footer-brand {
+        grid-column: 1 / -1;
+      }
+
+      .hero h1 {
+        font-size: 38px;
+      }
+
+      .stats-bar {
+        grid-template-columns: repeat(2, 1fr);
+        row-gap: 20px;
+      }
+    }
+
+    @media (max-width: 560px) {
+
+      .navbar {
+        padding: 16px;
+      }
+
+      .navactions .btn-outline {
+        display: none;
+      }
+
+      .search-box {
+        padding: 0 16px;
+      }
+
+      .section {
+        padding-left: 16px;
+        padding-right: 16px;
+      }
+
+      .grid-4,
+      .grid-6 {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 14px;
+      }
+
+      .footer-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .side-banner {
+        display: none;
+      }
+
+      .list-main {
+        padding: 30px 16px;
+      }
+
+      .hero {
+        padding: 80px 20px;
+      }
+
+      .hero h1 {
+        font-size: 32px;
+      }
+
+      .footer-bottom {
+        flex-direction: column;
+        gap: 10px;
+      }
+
+      .seat-grid {
+        gap: 5px;
+      }
+
+      .seat {
+        font-size: 9px;
+        padding: 7px 1px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- ================= NAVBAR ================= -->
+
+  <header class="top">
+    <div class="navbar">
+
+      <div class="brand">XXI</div>
+
+      <nav class="navlinks">
+        <a href="#" class="active">Home</a>
+        <a href="#movies">Movies</a>
+        <a href="#continue">TV Shows</a>
+        <a href="#movies">New & Popular</a>
+        <a href="#myList">My List</a>
+      </nav>
+
+      <div class="navactions">
+        <button class="btn btn-primary" onclick="openTrailer('Film Pilihan XXI')">
+          ▶ Play Now
+        </button>
+
+        <button class="btn btn-outline" onclick="toggleTheme()">
+          🌙 Tema
+        </button>
+      </div>
+
+    </div>
+  </header>
+
+
+  <!-- ================= SEARCH ================= -->
+
+  <div class="search-box">
+    <div class="search-inner">
+      <input
+        type="text"
+        id="searchInput"
+        placeholder="🔎 Cari judul film..."
+        onkeyup="searchMovie()">
+    </div>
+  </div>
+
+
+  <!-- ================= TRENDS ================= -->
+
+  <section class="section">
+
+    <div class="wrap">
+
+      <div class="section-head">
+        <h2>Trends Now</h2>
+
+        <div class="tabs">
+          <span class="active">Popular</span>
+          <span>Premiers</span>
+          <span>Favorit</span>
+        </div>
+      </div>
+
+
+      <div class="pills genre-filter">
+
+        <div class="pill active" data-genre="all">Semua</div>
+        <div class="pill" data-genre="Horor">Horor</div>
+        <div class="pill" data-genre="Comedy">Comedy</div>
+        <div class="pill" data-genre="Anime">Anime</div>
+        <div class="pill" data-genre="Romans">Romans</div>
+        <div class="pill" data-genre="Action">Action</div>
+        <div class="pill" data-genre="Adventure">Adventure</div>
+        <div class="pill" data-genre="Crime">Crime</div>
+
+      </div>
+
+
+      <div class="grid-4">
+
+        <div class="trend-card">
+          <div class="poster p1"
+            onclick="openDetail('Pengantin Iblis','Horor','8.5','1j 40m','Film ini menceritakan kisah misterius dan teror yang dialami sebuah keluarga.')">
+
+            <button class="favorite"
+              onclick="toggleFavorite(event,this,'Pengantin Iblis')">♡</button>
+
+            <span class="ptitle">PENGANTIN IBLIS</span>
+          </div>
+
+          <div class="movie-meta">
+            <div class="mtitle">Pengantin Iblis</div>
+            <div class="stars">★★★★<span class="off">★</span></div>
+          </div>
+        </div>
+
+
+        <div class="trend-card">
+          <div class="poster p2"
+            onclick="openDetail('Siksa Neraka','Horor','8.2','1j 35m','Film horor tentang perjalanan mengerikan yang penuh misteri.')">
+
+            <button class="favorite"
+              onclick="toggleFavorite(event,this,'Siksa Neraka')">♡</button>
+
+            <span class="ptitle">SIKSA NERAKA</span>
+          </div>
+
+          <div class="movie-meta">
+            <div class="mtitle">Siksa Neraka</div>
+            <div class="stars">★★★★<span class="off">★</span></div>
+          </div>
+        </div>
+
+
+        <div class="trend-card">
+          <div class="poster p3"
+            onclick="openDetail('Perjamuan Iblis','Horor','8.0','1j 45m','Kisah keluarga yang menghadapi kejadian misterius setelah sebuah perjamuan.')">
+
+            <button class="favorite"
+              onclick="toggleFavorite(event,this,'Perjamuan Iblis')">♡</button>
+
+            <span class="ptitle">PERJAMUAN IBLIS</span>
+          </div>
+
+          <div class="movie-meta">
+            <div class="mtitle">Perjamuan Iblis</div>
+            <div class="stars">★★★★<span class="off">★</span></div>
+          </div>
+        </div>
+
+
+        <div class="trend-card">
+          <div class="poster p4"
+            onclick="openDetail('KKN Di Desa Penari','Horor','8.7','1j 50m','Sekelompok mahasiswa mengalami kejadian misterius ketika melakukan kegiatan di sebuah desa.')">
+
+            <button class="favorite"
+              onclick="toggleFavorite(event,this,'KKN Di Desa Penari')">♡</button>
+
+            <span class="ptitle">KKN DI DESA PENARI</span>
+          </div>
+
+          <div class="movie-meta">
+            <div class="mtitle">KKN Di Desa Penari</div>
+            <div class="stars">★★★★★</div>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <div class="banner-strip">
+    🎬 SILAHKAN PILIH FILM YANG ANDA INGIN NONTON DI XXI 🎬
+  </div>
+
+
+  <!-- ================= CONTINUE WATCHING ================= -->
+
+  <section class="section" id="continue">
+
+    <div class="wrap">
+
+      <div class="section-head">
+        <h2>Continue Watching</h2>
+        <span class="see-more">SEE MORE</span>
+      </div>
+
+      <div class="cw-grid">
+
+        <div>
+          <div class="cw-item cw1">
+            <div class="play-btn"
+              onclick="openTrailer('Malam Pencabut Nyawa')"></div>
+          </div>
+
+          <div class="cw-caption">
+            <p>Malam Pencabut Nyawa</p>
+            <div class="progress">
+              <span style="width:35%;"></span>
+            </div>
+          </div>
+        </div>
+
+
+        <div>
+          <div class="cw-item cw2">
+            <div class="play-btn"
+              onclick="openTrailer('Jailangkung Sandekala')"></div>
+          </div>
+
+          <div class="cw-caption">
+            <p>Jailangkung Sandekala</p>
+            <div class="progress">
+              <span style="width:55%;"></span>
+            </div>
+          </div>
+        </div>
+
+
+        <div>
+          <div class="cw-item cw3">
+            <div class="play-btn"
+              onclick="openTrailer('Pengabdi Setan')"></div>
+          </div>
+
+          <div class="cw-caption">
+            <p>Pengabdi Setan</p>
+            <div class="progress">
+              <span style="width:70%;"></span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- ================= DAFTAR FILM ================= -->
+
+  <section id="movies" style="border-top:1px solid var(--line); margin-top:40px;">
+
+    <div class="list-wrap">
+
+      <div class="list-main">
+
+        <div class="list-top">
+
+          <div>
+            <h2>Daftar Film</h2>
+            <p style="color:var(--muted);font-size:12px;margin-top:5px;">
+              Pilih film favoritmu dan pesan tiket sekarang.
+            </p>
+          </div>
+
+          <div class="navactions">
+            <button class="btn btn-primary"
+              onclick="openBooking('')">
+              🎟 Buy Now
+            </button>
+
+            <button class="btn btn-outline"
+              onclick="showMyList()">
+              ❤️ My List
+            </button>
+          </div>
+
+        </div>
+
+
+        <div class="grid-6" id="movieGrid">
+
+
+          <!-- FILM 1 -->
+
+          <div class="movie-card"
+            data-title="Pengabdi Setan"
+            data-genre="Horor">
+
+            <div class="poster p5"
+              onclick="openDetail('Pengabdi Setan','Horor','8.8','1j 47m','Sebuah keluarga mengalami teror misterius setelah meninggalnya sang ibu.')">
+
+              <button class="favorite"
+                onclick="toggleFavorite(event,this,'Pengabdi Setan')">♡</button>
+
+              <span class="ptitle" style="font-size:16px;">
+                PENGABDI SETAN
+              </span>
+
+            </div>
+
+            <div class="mtitle">Pengabdi Setan</div>
+
+            <div class="stars">
+              ★★★★<span class="off">★</span>
+            </div>
+
+            <button class="buy-btn"
+              onclick="openBooking('Pengabdi Setan')">
+              🎟 Buy Now
+            </button>
+
+            <p class="desc">
+              Film tentang sebuah keluarga yang mengalami teror misterius setelah sang ibu meninggal dunia.
+            </p>
+
+          </div>
+
+
+          <!-- FILM 2 -->
+
+          <div class="movie-card"
+            data-title="Pamali Dusun Pocong"
+            data-genre="Horor">
+
+            <div class="poster p6"
+              onclick="openDetail('Pamali Dusun Pocong','Horor','8.1','1j 38m','Tiga tenaga medis dan dua penggali kubur mendapat tugas di sebuah desa terpencil.')">
+
+              <button class="favorite"
+                onclick="toggleFavorite(event,this,'Pamali Dusun Pocong')">♡</button>
+
+              <span class="ptitle" style="font-size:16px;">
+                PAMALI DUSUN POCONG
+              </span>
+
+            </div>
+
+            <div class="mtitle">Pamali Dusun Pocong</div>
+
+            <div class="stars">
+              ★★★★<span class="off">★</span>
+            </div>
+
+            <button class="buy-btn"
+              onclick="openBooking('Pamali Dusun Pocong')">
+              🎟 Buy Now
+            </button>
+
+            <p class="desc">
+              Tiga tenaga medis dan dua penggali kubur diteror setelah ditugaskan ke sebuah desa terpencil.
+            </p>
+
+          </div>
+
+
+          <!-- FILM 3 -->
+
+          <div class="movie-card"
+            data-title="Danur The Last Chapter"
+            data-genre="Horor">
+
+            <div class="poster p7"
+              onclick="openDetail('Danur The Last Chapter','Horor','8.0','1j 42m','Risa mencoba menjalani hidup normal setelah bertahun-tahun berhubungan dengan teman-teman hantunya.')">
+
+              <button class="favorite"
+                onclick="toggleFavorite(event,this,'Danur The Last Chapter')">♡</button>
+
+              <span class="ptitle" style="font-size:16px;">
+                DANUR THE LAST CHAPTER
+              </span>
+
+            </div>
+
+            <div class="mtitle">Danur The Last Chapter</div>
+
+            <div class="stars">
+              ★★★★<span class="off">★</span>
+            </div>
+
+            <button class="buy-btn"
+              onclick="openBooking('Danur The Last Chapter')">
+              🎟 Buy Now
+            </button>
+
+            <p class="desc">
+              Risa mencoba menjalani kehidupan normal setelah lama menutup mata batin.
+            </p>
+
+          </div>
+
+
+          <!-- FILM 4 -->
+
+          <div class="movie-card"
+            data-title="Almarhum"
+            data-genre="Horor">
+
+            <div class="poster p8"
+              onclick="openDetail('Almarhum','Horor','8.3','1j 40m','Sebuah keluarga mengalami kejadian misterius setelah sang ayah meninggal dunia.')">
+
+              <button class="favorite"
+                onclick="toggleFavorite(event,this,'Almarhum')">♡</button>
+
+              <span class="ptitle" style="font-size:16px;">
+                ALMARHUM
+              </span>
+
+            </div>
+
+            <div class="mtitle">Almarhum</div>
+
+            <div class="stars">
+              ★★★★<span class="off">★</span>
+            </div>
+
+            <button class="buy-btn"
+              onclick="openBooking('Almarhum')">
+              🎟 Buy Now
+            </button>
+
+            <p class="desc">
+              Sebuah keluarga mengalami teror setelah sang ayah meninggal dunia.
+            </p>
+
+          </div>
+
+
+          <!-- FILM 5 -->
+
+          <div class="movie-card"
+            data-title="Kitab Sijjin & Illiyyin"
+            data-genre="Horor">
+
+            <div class="poster p9"
+              onclick="openDetail('Kitab Sijjin & Illiyyin','Horor','8.4','1j 46m','Kisah balas dendam seorang wanita yang menyimpan kebencian selama bertahun-tahun.')">
+
+              <button class="favorite"
+                onclick="toggleFavorite(event,this,'Kitab Sijjin & Illiyyin')">♡</button>
+
+              <span class="ptitle" style="font-size:16px;">
+                KITAB SIJJIN
+              </span>
+
+            </div>
+
+            <div class="mtitle">Kitab Sijjin & Illiyyin</div>
+
+            <div class="stars">
+              ★★★★<span class="off">★</span>
+            </div>
+
+            <button class="buy-btn"
+              onclick="openBooking('Kitab Sijjin & Illiyyin')">
+              🎟 Buy Now
+            </button>
+
+            <p class="desc">
+              Kisah balas dendam seorang wanita akibat penindasan yang dialaminya.
+            </p>
+
+          </div>
+
+
+          <!-- FILM 6 -->
+
+          <div class="movie-card"
+            data-title="Sebelum Iblis Menjemput"
+            data-genre="Horor">
+
+            <div class="poster p10"
+              onclick="openDetail('Sebelum Iblis Menjemput','Horor','8.5','1j 50m','Satu keluarga menghadapi teror setelah masa lalu kelam sang ayah terbongkar.')">
+
+              <button class="favorite"
+                onclick="toggleFavorite(event,this,'Sebelum Iblis Menjemput')">♡</button>
+
+              <span class="ptitle" style="font-size:16px;">
+                SEBELUM IBLIS MENJEMPUT
+              </span>
+
+            </div>
+
+            <div class="mtitle">Sebelum Iblis Menjemput</div>
+
+            <div class="stars">
+              ★★★★<span class="off">★</span>
+            </div>
+
+            <button class="buy-btn"
+              onclick="openBooking('Sebelum Iblis Menjemput')">
+              🎟 Buy Now
+            </button>
+
+            <p class="desc">
+              Sebuah keluarga menghadapi teror setelah masa lalu kelam sang ayah.
+            </p>
+
+          </div>
+
+
+          <!-- FILM 7 -->
+
+          <div class="movie-card"
+            data-title="Sajen"
+            data-genre="Horor">
+
+            <div class="poster p11"
+              onclick="openDetail('Sajen','Horor','7.9','1j 35m','Teror misterius terjadi di sebuah sekolah setelah kejadian tragis.')">
+
+              <button class="favorite"
+                onclick="toggleFavorite(event,this,'Sajen')">♡</button>
+
+              <span class="ptitle" style="font-size:16px;">
+                SAJEN
+              </span>
+
+            </div>
+
+            <div class="mtitle">Sajen</div>
+
+            <div class="stars">
+              ★★★★<span class="off">★</span>
+            </div>
+
+            <button class="buy-btn"
+              onclick="openBooking('Sajen')">
+              🎟 Buy Now
+            </button>
+
+            <p class="desc">
+              Teror misterius terjadi di sebuah SMA setelah sebuah kejadian tragis.
+            </p>
+
+          </div>
+
+
+          <!-- FILM 8 -->
+
+          <div class="movie-card"
+            data-title="Jailangkung"
+            data-genre="Horor">
+
+            <div class="poster p12"
+              onclick="openDetail('Jailangkung','Horor','8.0','1j 38m','Tiga bersaudara mencoba mengungkap misteri yang terjadi pada keluarga mereka.')">
+
+              <button class="favorite"
+                onclick="toggleFavorite(event,this,'Jailangkung')">♡</button>
+
+              <span class="ptitle" style="font-size:16px;">
+                JAILANGKUNG
+              </span>
+
+            </div>
+
+            <div class="mtitle">Jailangkung</div>
+
+            <div class="stars">
+              ★★★★<span class="off">★</span>
+            </div>
+
+            <button class="buy-btn"
+              onclick="openBooking('Jailangkung')">
+              🎟 Buy Now
+            </button>
+
+            <p class="desc">
+              Tiga bersaudara berusaha mengungkap misteri yang terjadi dalam keluarga mereka.
+            </p>
+
+          </div>
+
+
+          <!-- FILM 9 -->
+
+          <div class="movie-card"
+            data-title="Sumala"
+            data-genre="Horor">
+
+            <div class="poster p1"
+              onclick="openDetail('Sumala','Horor','8.6','1j 43m','Sepasang suami istri melakukan perjanjian misterius demi mendapatkan anak.')">
+
+              <button class="favorite"
+                onclick="toggleFavorite(event,this,'Sumala')">♡</button>
+
+              <span class="ptitle" style="font-size:16px;">
+                SUMALA
+              </span>
+
+            </div>
+
+            <div class="mtitle">Sumala</div>
+
+            <div class="stars">
+              ★★★★<span class="off">★</span>
+            </div>
+
+            <button class="buy-btn"
+              onclick="openBooking('Sumala')">
+              🎟 Buy Now
+            </button>
+
+            <p class="desc">
+              Kisah pasangan suami istri yang menghadapi konsekuensi dari sebuah perjanjian.
+            </p>
+
+          </div>
+
+
+          <!-- FILM 10 -->
+
+          <div class="movie-card"
+            data-title="Anak Kunti"
+            data-genre="Horor">
+
+            <div class="poster p2"
+              onclick="openDetail('Anak Kunti','Horor','8.1','1j 37m','Sarah mengalami kejadian misterius yang membawanya menemukan rahasia masa lalu.')">
+
+              <button class="favorite"
+                onclick="toggleFavorite(event,this,'Anak Kunti')">♡</button>
+
+              <span class="ptitle" style="font-size:16px;">
+                ANAK KUNTI
+              </span>
+
+            </div>
+
+            <div class="mtitle">Anak Kunti</div>
+
+            <div class="stars">
+              ★★★★<span class="off">★</span>
+            </div>
+
+            <button class="buy-btn"
+              onclick="openBooking('Anak Kunti')">
+              🎟 Buy Now
+            </button>
+
+            <p class="desc">
+              Sarah mengalami kejadian misterius saat mencoba mencari rahasia masa lalunya.
+            </p>
+
+          </div>
+
+
+          <!-- FILM 11 -->
+
+          <div class="movie-card"
+            data-title="Muslihat"
+            data-genre="Horor">
+
+            <div class="poster p3"
+              onclick="openDetail('Muslihat','Horor','7.8','1j 36m','Anak-anak dan pengurus sebuah panti mengalami kejadian mistis.')">
+
+              <button class="favorite"
+                onclick="toggleFavorite(event,this,'Muslihat')">♡</button>
+
+              <span class="ptitle" style="font-size:16px;">
+                MUSLIHAT
+              </span>
+
+            </div>
+
+            <div class="mtitle">Muslihat</div>
+
+            <div class="stars">
+              ★★★★<span class="off">★</span>
+            </div>
+
+            <button class="buy-btn"
+              onclick="openBooking('Muslihat')">
+              🎟 Buy Now
+            </button>
+
+            <p class="desc">
+              Teror misterius terjadi di sebuah panti asuhan terpencil.
+            </p>
+
+          </div>
+
+
+          <!-- FILM 12 -->
+
+          <div class="movie-card"
+            data-title="Waktu Maghrib 2"
+            data-genre="Horor">
+
+            <div class="poster p4"
+              onclick="openDetail('Waktu Maghrib 2','Horor','8.3','1j 42m','Teror misterius kembali muncul di sebuah desa setelah kejadian masa lalu.')">
+
+              <button class="favorite"
+                onclick="toggleFavorite(event,this,'Waktu Maghrib 2')">♡</button>
+
+              <span class="ptitle" style="font-size:16px;">
+                WAKTU MAGHRIB 2
+              </span>
+
+            </div>
+
+            <div class="mtitle">Waktu Maghrib 2</div>
+
+            <div class="stars">
+              ★★★★<span class="off">★</span>
+            </div>
+
+            <button class="buy-btn"
+              onclick="openBooking('Waktu Maghrib 2')">
+              🎟 Buy Now
+            </button>
+
+            <p class="desc">
+              Teror misterius kembali muncul setelah kejadian yang terjadi di masa lalu.
+            </p>
+
+          </div>
+
+        </div>
+
+      </div>
+
+      <div class="side-banner">
+        WATCHING FILM HOROR LAINNYA
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- ================= HERO ================= -->
+
+  <section class="hero">
+
+    <div class="hero-inner">
+
+      <div class="eyebrow">
+        BIOSKOP XXI PREMIUM STREAMING
+      </div>
+
+      <h1>
+        Mulai Nonton Sekarang
+      </h1>
+
+      <p>
+        Ribuan film & serial terbaik tersedia untuk kamu
+      </p>
+
+      <div class="hero-btns">
+
+        <button class="btn btn-primary"
+          onclick="openTrailer('Film Pilihan XXI')">
+          ▶ Mulai Nonton
+        </button>
+
+        <button class="btn btn-outline"
+          onclick="document.getElementById('movies').scrollIntoView()">
+          Lihat Kategori Film
+        </button>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- ================= FOOTER ================= -->
+
+  <footer>
+
+    <div class="wrap">
+
+      <div class="footer-grid">
+
+        <div class="footer-brand">
+
+          <span class="brand">XXI</span>
+          <span class="tagline">PREMIUM</span>
+
+          <div class="footer-sub">
+            Streaming movies & TV shows
+          </div>
+
+          <p class="footer-desc">
+            Platform streaming film & serial terbaik Indonesia.
+            Nikmati berbagai konten hiburan kapan saja dan di mana saja.
+          </p>
+
+          <div class="badges">
+            <div class="badge red">4K ULTRA HD</div>
+            <div class="badge outline">DOLBY AUDIO</div>
+          </div>
+
+        </div>
+
+
+        <div class="footer-col">
+
+          <h4>☰ CATEGORIES</h4>
+
+          <ul>
+            <li><a href="#movies">Movies</a></li>
+            <li><a href="#continue">TV Shows</a></li>
+            <li><a href="#movies">New & Popular</a></li>
+            <li><a href="#myList">My List</a></li>
+          </ul>
+
+        </div>
+
+
+        <div class="footer-col">
+
+          <h4>⏻ SUPPORT</h4>
+
+          <ul>
+            <li><a href="#">Help Center</a></li>
+            <li><a href="#">Contact Us</a></li>
+            <li><a href="#">Privacy Policy</a></li>
+            <li><a href="#">Terms of Service</a></li>
+          </ul>
+
+        </div>
+
+
+        <div class="footer-col">
+
+          <h4>▭ PLATFORM</h4>
+
+          <ul>
+            <li><a href="#">Android</a></li>
+            <li><a href="#">iOS</a></li>
+            <li><a href="#">Smart TV</a></li>
+            <li><a href="#">Web Browser</a></li>
+          </ul>
+
+        </div>
+
+
+        <div class="footer-col">
+
+          <h4 style="color:var(--red);">
+            ⇆ FOLLOW US
+          </h4>
+
+          <div class="social">
+            <a href="#">IG</a>
+            <a href="#">X</a>
+            <a href="#">FB</a>
+            <a href="#">YT</a>
+          </div>
+
+          <h4 style="color:var(--red);">
+            NEWSLETTER
+          </h4>
+
+          <input
+            class="newsletter-input"
+            type="email"
+            placeholder="Email kamu...">
+
+          <button class="subscribe-btn"
+            onclick="subscribeNewsletter()">
+            SUBSCRIBE
+          </button>
+
+        </div>
+
+      </div>
+
+
+      <div class="stats-bar">
+
+        <div>
+          <div class="num">500+</div>
+          <div class="label">FILM TERSEDIA</div>
+        </div>
+
+        <div>
+          <div class="num">4K</div>
+          <div class="label">KUALITAS VIDEO</div>
+        </div>
+
+        <div>
+          <div class="num">2M+</div>
+          <div class="label">PENONTON AKTIF</div>
+        </div>
+
+        <div>
+          <div class="num">24/7</div>
+          <div class="label">AKSES NON-STOP</div>
+        </div>
+
+      </div>
+
+
+      <div class="footer-bottom">
+
+        <span>
+          © 2026 XXI. All rights reserved.
+          • Kebijakan Privasi
+          • Syarat & Ketentuan
+        </span>
+
+        <span>
+          🇮🇩 Indonesia
+        </span>
+
+      </div>
+
+    </div>
+
+  </footer>
+
+
+  <!-- ================= BOOKING MODAL ================= -->
+
+  <div class="modal-overlay" id="bookingModal">
+
+    <div class="modal-box">
+
+      <button class="modal-close"
+        onclick="closeModal('bookingModal')">
+        ✕
+      </button>
+
+
+      <div id="bookingFormView">
+
+        <div class="modal-eyebrow">
+          PEMESANAN TIKET
+        </div>
+
+        <div class="modal-title">
+          Isi Data Pemesanan
+        </div>
+
+
+        <div class="field">
+
+          <label>Judul Film</label>
+
+          <input
+            type="text"
+            id="fFilm"
+            readonly>
+
+        </div>
+
+
+        <div class="field">
+
+          <label>Nama Pemesan</label>
+
+          <input
+            type="text"
+            id="fNama"
+            placeholder="Masukkan nama kamu">
+
+        </div>
+
+
+        <div class="field">
+
+          <label>Tanggal</label>
+
+          <input
+            type="date"
+            id="fTanggal">
+
+        </div>
+
+
+        <div class="field">
+
+          <label>Jam Tayang</label>
+
+          <select id="fJam">
+
+            <option value="">
+              Pilih jam tayang
+            </option>
+
+            <option>13:00</option>
+            <option>15:30</option>
+            <option>18:00</option>
+            <option>20:30</option>
+
+          </select>
+
+        </div>
+
+
+        <div class="field">
+
+          <label>Pilih Kursi</label>
+
+          <div class="screen">
+            SCREEN
+          </div>
+
+          <div class="seat-grid" id="seatGrid"></div>
+
+          <div class="seat-info">
+            Kursi dipilih:
+            <strong id="selectedSeatText">Belum ada</strong>
+          </div>
+
+        </div>
+
+
+        <button
+          class="modal-submit"
+          onclick="submitBooking()">
+          Konfirmasi Pesanan
+        </button>
+
+      </div>
+
+
+      <!-- CONFIRMATION -->
+
+      <div id="confirmView"
+        class="confirm-view">
+
+        <div class="confirm-icon">
+          ✓
+        </div>
+
+        <h3>
+          Pesanan Berhasil!
+        </h3>
+
+        <p>
+          Tiket kamu berhasil dicatat.
+          Simpan detail berikut.
+        </p>
+
+
+        <div class="confirm-detail">
+
+          <div>
+            <span>Film</span>
+            <span id="cFilm">-</span>
+          </div>
+
+          <div>
+            <span>Nama</span>
+            <span id="cNama">-</span>
+          </div>
+
+          <div>
+            <span>Tanggal</span>
+            <span id="cTanggal">-</span>
+          </div>
+
+          <div>
+            <span>Jam</span>
+            <span id="cJam">-</span>
+          </div>
+
+          <div>
+            <span>Kursi</span>
+            <span id="cKursi">-</span>
+          </div>
+
+        </div>
+
+
+        <button
+          class="modal-done-btn"
+          onclick="closeModal('bookingModal')">
+          Selesai
+        </button>
+
+      </div>
+
+    </div>
+
+  </div>
+
+
+  <!-- ================= DETAIL MODAL ================= -->
+
+  <div class="modal-overlay"
+    id="detailModal">
+
+    <div class="modal-box">
+
+      <button class="modal-close"
+        onclick="closeModal('detailModal')">
+        ✕
+      </button>
+
+
+      <div
+        class="detail-poster"
+        id="detailPoster">
+
+        <h2 id="detailTitle">
+          Film
+        </h2>
+
+      </div>
+
+
+      <div class="detail-info">
+
+        <span class="detail-tag"
+          id="detailGenre">
+          Horor
+        </span>
+
+        <span class="detail-tag">
+          ⭐ <span id="detailRating">8.5</span>
+        </span>
+
+        <span class="detail-tag"
+          id="detailDuration">
+          1j 40m
+        </span>
+
+      </div>
+
+
+      <p class="detail-desc"
+        id="detailDesc">
+      </p>
+
+
+      <button class="modal-submit"
+        onclick="bookFromDetail()">
+        🎟 Pesan Tiket
+      </button>
+
+    </div>
+
+  </div>
+
+
+  <!-- ================= TRAILER MODAL ================= -->
+
+  <div class="modal-overlay"
+    id="trailerModal">
+
+    <div class="modal-box trailer-box">
+
+      <button class="modal-close"
+        onclick="closeModal('trailerModal')">
+        ✕
+      </button>
+
+
+      <div class="modal-eyebrow">
+        XXI PREMIUM
+      </div>
+
+      <div class="modal-title"
+        id="trailerTitle">
+        Trailer Film
+      </div>
+
+
+      <div class="trailer-screen">
+
+        <button class="big-play"
+          onclick="playTrailer()">
+          ▶
+        </button>
+
+      </div>
+
+
+      <p id="trailerText"
+        style="text-align:center;color:var(--muted);font-size:13px;">
+        Klik tombol play untuk memulai trailer.
+      </p>
+
+    </div>
+
+  </div>
+
+
+  <!-- ================= TOAST ================= -->
+
+  <div class="toast"
+    id="toast">
+
+    <div class="toast-icon">
+      ✓
+    </div>
+
+    <div class="toast-text">
+
+      <strong id="toastTitle">
+        Berhasil
+      </strong>
+
+      <span id="toastMsg">
+        Tindakan berhasil dilakukan.
+      </span>
+
+    </div>
+
+  </div>
+
+
+  <!-- ================= BACK TO TOP ================= -->
+
+  <button id="backTop"
+    onclick="window.scrollTo({top:0,behavior:'smooth'})">
+    ↑
+  </button>
+
+
+  <!-- ================= JAVASCRIPT ================= -->
+
+  <script>
+
+    /* =========================================
+       DATA & VARIABEL
+    ========================================= */
+
+    let selectedSeats = [];
+    let currentDetailFilm = "";
+    let favorites = JSON.parse(localStorage.getItem("xxiFavorites")) || [];
+
+    const occupiedSeats = [
+      "A2",
+      "A5",
+      "B3",
+      "C6",
+      "D1",
+      "D4",
+      "E2",
+      "F5"
+    ];
+
+
+    /* =========================================
+       MODAL
+    ========================================= */
+
+    function openModal(id) {
+      document.getElementById(id).classList.add("open");
+    }
+
+    function closeModal(id) {
+      document.getElementById(id).classList.remove("open");
+    }
+
+
+    document.querySelectorAll(".modal-overlay").forEach(modal => {
+
+      modal.addEventListener("click", function(e) {
+
+        if (e.target === modal) {
+          modal.classList.remove("open");
+        }
+
+      });
+
+    });
+
+
+    /* =========================================
+       BOOKING
+    ========================================= */
+
+    function openBooking(film) {
+
+      document.getElementById("fFilm").value = film;
+
+      document.getElementById("fNama").value = "";
+
+      document.getElementById("fTanggal").value = "";
+
+      document.getElementById("fJam").value = "";
+
+      selectedSeats = [];
+
+      document.getElementById("bookingFormView").style.display = "block";
+
+      document.getElementById("confirmView").classList.remove("show");
+
+      generateSeats();
+
+      openModal("bookingModal");
+    }
+
+
+    function generateSeats() {
+
+      const grid = document.getElementById("seatGrid");
+
+      grid.innerHTML = "";
+
+      const rows = ["A", "B", "C", "D", "E", "F"];
+
+      rows.forEach(row => {
+
+        for (let i = 1; i <= 6; i++) {
+
+          const seatName = row + i;
+
+          const button = document.createElement("button");
+
+          button.className = "seat";
+
+          button.textContent = seatName;
+
+          if (occupiedSeats.includes(seatName)) {
+
+            button.classList.add("occupied");
+
+            button.disabled = true;
+
+          } else {
+
+            button.onclick = () =>
+              selectSeat(seatName, button);
+
+          }
+
+          grid.appendChild(button);
+
+        }
+
+      });
+
+    }
+
+
+    function selectSeat(seat, button) {
+
+      if (selectedSeats.includes(seat)) {
+
+        selectedSeats =
+          selectedSeats.filter(s => s !== seat);
+
+        button.classList.remove("selected");
+
+      } else {
+
+        if (selectedSeats.length >= 4) {
+
+          showToast(
+            "Maksimal 4 Kursi",
+            "Kamu hanya dapat memilih maksimal 4 kursi."
+          );
+
+          return;
+        }
+
+        selectedSeats.push(seat);
+
+        button.classList.add("selected");
+
+      }
+
+      document.getElementById("selectedSeatText").textContent =
+        selectedSeats.length
+          ? selectedSeats.join(", ")
+          : "Belum ada";
+
+    }
+
+
+    function submitBooking() {
+
+      const film =
+        document.getElementById("fFilm").value;
+
+      const nama =
+        document.getElementById("fNama").value;
+
+      const tanggal =
+        document.getElementById("fTanggal").value;
+
+      const jam =
+        document.getElementById("fJam").value;
+
+
+      if (!film) {
+
+        showToast(
+          "Pilih Film",
+          "Silakan pilih film terlebih dahulu."
+        );
+
+        return;
+      }
+
+
+      if (!nama || !tanggal || !jam) {
+
+        showToast(
+          "Data Belum Lengkap",
+          "Silakan lengkapi data pemesanan."
+        );
+
+        return;
+      }
+
+
+      if (selectedSeats.length === 0) {
+
+        showToast(
+          "Pilih Kursi",
+          "Silakan pilih minimal satu kursi."
+        );
+
+        return;
+      }
+
+
+      document.getElementById("cFilm").textContent = film;
+
+      document.getElementById("cNama").textContent = nama;
+
+      document.getElementById("cTanggal").textContent = tanggal;
+
+      document.getElementById("cJam").textContent = jam;
+
+      document.getElementById("cKursi").textContent =
+        selectedSeats.join(", ");
+
+
+      document.getElementById("bookingFormView").style.display =
+        "none";
+
+      document.getElementById("confirmView").classList.add("show");
+
+
+      showToast(
+        "Pesanan Berhasil",
+        "Tiket berhasil dipesan."
+      );
+
+    }
+
+
+    /* =========================================
+       DETAIL FILM
+    ========================================= */
+
+    function openDetail(
+      title,
+      genre,
+      rating,
+      duration,
+      description
+    ) {
+
+      currentDetailFilm = title;
+
+      document.getElementById("detailTitle").textContent =
+        title;
+
+      document.getElementById("detailGenre").textContent =
+        genre;
+
+      document.getElementById("detailRating").textContent =
+        rating;
+
+      document.getElementById("detailDuration").textContent =
+        duration;
+
+      document.getElementById("detailDesc").textContent =
+        description;
+
+      openModal("detailModal");
+
+    }
+
+
+    function bookFromDetail() {
+
+      closeModal("detailModal");
+
+      openBooking(currentDetailFilm);
+
+    }
+
+
+    /* =========================================
+       FAVORITE / MY LIST
+    ========================================= */
+
+    function toggleFavorite(event, button, film) {
+
+      event.stopPropagation();
+
+      if (favorites.includes(film)) {
+
+        favorites =
+          favorites.filter(item => item !== film);
+
+        button.classList.remove("active");
+
+        button.textContent = "♡";
+
+        showToast(
+          "Dihapus",
+          film + " dihapus dari My List."
+        );
+
+      } else {
+
+        favorites.push(film);
+
+        button.classList.add("active");
+
+        button.textContent = "♥";
+
+        showToast(
+          "My List",
+          film + " ditambahkan ke My List."
+        );
+
+      }
+
+      localStorage.setItem(
+        "xxiFavorites",
+        JSON.stringify(favorites)
+      );
+
+    }
+
+
+    function showMyList() {
+
+      document.getElementById("movies")
+        .scrollIntoView({
+          behavior: "smooth"
+        });
+
+      const cards =
+        document.querySelectorAll(".movie-card");
+
+      cards.forEach(card => {
+
+        const title =
+          card.dataset.title;
+
+        if (favorites.includes(title)) {
+
+          card.style.display = "block";
+
+        } else {
+
+          card.style.display = "none";
+
+        }
+
+      });
+
+      showToast(
+        "My List",
+        "Menampilkan film favorit kamu."
+      );
+
+    }
+
+
+    /* =========================================
+       SEARCH FILM
+    ========================================= */
+
+    function searchMovie() {
+
+      const keyword =
+        document.getElementById("searchInput")
+          .value
+          .toLowerCase();
+
+      const cards =
+        document.querySelectorAll(".movie-card");
+
+      cards.forEach(card => {
+
+        const title =
+          card.dataset.title.toLowerCase();
+
+        if (title.includes(keyword)) {
+
+          card.style.display = "block";
+
+        } else {
+
+          card.style.display = "none";
+
+        }
+
+      });
+
+    }
+
+
+    /* =========================================
+       GENRE FILTER
+    ========================================= */
+
+    document
+      .querySelectorAll(".genre-filter .pill")
+      .forEach(pill => {
+
+        pill.addEventListener("click", function() {
+
+          document
+            .querySelectorAll(".genre-filter .pill")
+            .forEach(p =>
+              p.classList.remove("active")
+            );
+
+          this.classList.add("active");
+
+          const genre =
+            this.dataset.genre;
+
+          document
+            .querySelectorAll(".movie-card")
+            .forEach(card => {
+
+              if (
+                genre === "all" ||
+                card.dataset.genre === genre
+              ) {
+
+                card.style.display = "block";
+
+              } else {
+
+                card.style.display = "none";
+
+              }
+
+            });
+
+        });
+
+      });
+
+
+    /* =========================================
+       TABS
+    ========================================= */
+
+    document.querySelectorAll(".tabs").forEach(group => {
+
+      group.querySelectorAll("span").forEach(tab => {
+
+        tab.addEventListener("click", function() {
+
+          group
+            .querySelectorAll("span")
+            .forEach(x =>
+              x.classList.remove("active")
+            );
+
+          this.classList.add("active");
+
+        });
+
+      });
+
+    });
+
+
+    /* =========================================
+       TRAILER
+    ========================================= */
+
+    function openTrailer(film) {
+
+      document.getElementById("trailerTitle")
+        .textContent = film;
+
+      document.getElementById("trailerText")
+        .textContent =
+        "Klik tombol play untuk memulai trailer.";
+
+      openModal("trailerModal");
+
+    }
+
+
+    function playTrailer() {
+
+      document.getElementById("trailerText")
+        .textContent =
+        "▶ Trailer sedang diputar... Nikmati filmnya!";
+
+      showToast(
+        "Trailer",
+        "Trailer sedang diputar."
+      );
+
+    }
+
+
+    /* =========================================
+       DARK / LIGHT MODE
+    ========================================= */
+
+    function toggleTheme() {
+
+      document.body.classList.toggle("light");
+
+      const isLight =
+        document.body.classList.contains("light");
+
+      localStorage.setItem(
+        "xxiTheme",
+        isLight ? "light" : "dark"
+      );
+
+      showToast(
+        "Tema",
+        isLight
+          ? "Light mode aktif."
+          : "Dark mode aktif."
+      );
+
+    }
+
+
+    if (
+      localStorage.getItem("xxiTheme") === "light"
+    ) {
+
+      document.body.classList.add("light");
+
+    }
+
+
+    /* =========================================
+       RESTORE FAVORITES
+    ========================================= */
+
+    document.querySelectorAll(".favorite")
+      .forEach(button => {
+
+        const onclickText =
+          button.getAttribute("onclick") || "";
+
+        const match =
+          onclickText.match(/'([^']+)'/g);
+
+        if (!match) return;
+
+        const film =
+          match[match.length - 1]
+            .replace(/'/g, "");
+
+        if (favorites.includes(film)) {
+
+          button.classList.add("active");
+
+          button.textContent = "♥";
+
+        }
+
+      });
+
+
+    /* =========================================
+       TOAST
+    ========================================= */
+
+    let toastTimer;
+
+    function showToast(title, message) {
+
+      const toast =
+        document.getElementById("toast");
+
+      document.getElementById("toastTitle")
+        .textContent = title;
+
+      document.getElementById("toastMsg")
+        .textContent = message;
+
+      toast.classList.add("show");
+
+      clearTimeout(toastTimer);
+
+      toastTimer = setTimeout(() => {
+
+        toast.classList.remove("show");
+
+      }, 3500);
+
+    }
+
+
+    /* =========================================
+       NEWSLETTER
+    ========================================= */
+
+    function subscribeNewsletter() {
+
+      const email =
+        document.querySelector(".newsletter-input")
+          .value;
+
+      if (!email) {
+
+        showToast(
+          "Email Kosong",
+          "Masukkan email terlebih dahulu."
+        );
+
+        return;
+      }
+
+      showToast(
+        "Berhasil!",
+        "Kamu berhasil berlangganan newsletter."
+      );
+
+    }
+
+
+    /* =========================================
+       BACK TO TOP
+    ========================================= */
+
+    window.addEventListener("scroll", function() {
+
+      const button =
+        document.getElementById("backTop");
+
+      if (window.scrollY > 400) {
+
+        button.classList.add("show");
+
+      } else {
+
+        button.classList.remove("show");
+
+      }
+
+    });
+
+  </script>
+
+</body>
+
+</html>

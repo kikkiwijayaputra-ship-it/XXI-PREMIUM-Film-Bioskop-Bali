@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form Pendaftaran</title>
+    <link rel="stylesheet" href="latihanformpendaftaran.css">
+</head>
+
+<body>
+
+    <div class="container">
+        <h2>Form Pendaftaran</h2>
+
+        <form>
+
+            <label>Nama Lengkap</label>
+            <input type="text" id="nama" placeholder="Masukkan nama" required>
+
+            <label>Email/Username</label>
+            <input type="email" id="email" placeholder="Masukkan email/username" required>
+
+            <label>Password</label>
+            <input type="password" id="password" placeholder="Masukkan password" required>
+
+            <label>Usia</label>
+            <input type="number" id="usia" min="5" max="100" placeholder="Masukkan usia" required>
+
+            <label>Jenis Kelamin</label>
+            <select id="jk" required>
+                <option value="">Pilih Jenis Kelamin</option>
+                <option>Laki-laki</option>
+                <option>Perempuan</option>
+            </select>
+
+            <label>Tanggal Lahir</label>
+            <input type="date" required>
+
+            <label>Nomor Telepon</label>
+            <input type="tel" id="telepon" placeholder="Masukkan nomor telepon" required>
+
+            <label>Jurusan</label>
+            <select id="jurusan" required>
+                <option value="">Pilih Jurusan</option>
+                <option>Kuliner</option>
+                <option>Perhotelan</option>
+                <option>Desain Komunikasi Visual</option>
+                <option>Rekayasa Perangkat Lunak</option>
+                <option>Teknik Komputer dan Jaringan</option>
+                <option>Usaha Layanan Wisata</option>
+            </select>
+
+            <label>Agama</label>
+            <select id="agama" required>
+                <option value="">Pilih Agama</option>
+                <option>Islam</option>
+                <option>Protestan</option>
+                <option>Hindu</option>
+                <option>Budha</option>
+                <option>Katolik</option>
+                <option>Khonghucu</option>
+            </select>
+
+            <label>Alamat</label>
+            <textarea rows="4" placeholder="Masukkan alamat"></textarea>
+
+            <button type="submit">Daftar</button>
+
+        </form>
+        <script>
+            alert("Terima kasih telah mengisi form pendaftaran ini!");
+        </script>
+    </div>
+
+</html>
